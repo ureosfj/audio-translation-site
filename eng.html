@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/recorderjs/0.1.0/recorder.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>VoiceBridge - Audio Translation Service</title>
+</head>
+
+<body>
+  <nav class="container-fluid">
+    <ul>
+      <li><strong>VoiceBridge</strong></li>
+    </ul>
+    <ul>
+      <li><a href="index.html">ITA</a></li>
+    </ul>
+  </nav>
+  <main class="container">
+    <div class="grid">
+      <section>
+        <hgroup>
+          <h2>Instant Audio Translation</h2>
+          <h3>Upload or Record Your Audio</h3>
+        </hgroup>
+        <p>Upload your audio file or record directly on our platform. Get it translated to your desired language
+          effortlessly.</p>
+        <form class="grid">
+          <label for="fileUpload">Upload Audio File:</label>
+          <span>Supported formats: .mp3, .wav</span>
+          <span>Max file size: 1MB</span>
+          <input type="file" id="fileUpload" name="fileUpload" accept=".mp3, .wav" />
+
+          <div>Or Record Audio:</div>
+          <div>
+            <button id="recordButton">Record</button>
+            <button id="stopButton" disabled>Stop</button>
+          </div>
+          <div>
+            <label for="langSourceSel">Audio Language:</label>
+            <select id="langSourceSel" name="langSourceSel">
+
+            </select>
+            <label for="langDestSel">Translate to:</label>
+            <select id="langDestSel" name="langDestSel" onchange="showSubmitButton()">
+
+            </select>
+          </div>
+          <br>
+          <div id="uploadSection" style="display: none;">
+
+          <button id="uploadBtn" type="submit" onclick="event.preventDefault()">Submit for Translation</button>
+        </div>
+
+        </form>
+        <div id="loading-spinner-container" class="hidden">
+          <div class="spinner"></div>
+        </div>
+
+        <div id="translatedAudio" style="display: none">
+          <h3>Download or Listen to Translated Audio</h3>
+          <p>Once your audio is translated, download or listen to it in the new language right here.</p>
+          <!-- Placeholder for Download/Listen Links -->
+          <div>
+            <a id="downloadLink" href="" download>Download Translated Audio</a>
+            <audio controls id="resultAudioPlayer">
+              <source src="#" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="container">
+    <small>
+      <p>© 2024 Daniele Mariotto - <a href="https://github.com/danielemariotto" target="_blank">Github profile</a></p>
+    </small>
+  </footer>
+  <script src="app.js"></script>
+
+</body>
+
+</html>

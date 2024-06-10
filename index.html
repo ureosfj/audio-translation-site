@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/recorderjs/0.1.0/recorder.min.js"></script>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JN61YT761Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JN61YT761Z');
+</script>
+  <link rel="stylesheet" href="style.css">
+  <title>VoiceBridge - Traduci i tuoi audio</title>
+</head>
+
+<body>
+  <nav class="container-fluid">
+    <ul>
+      <li><strong>VoiceBridge</strong></li>
+    </ul>
+    <ul>
+      <li><a href="eng.html">ENG</a></li>
+    </ul>
+  </nav>
+<main class="container">
+    <div class="grid">
+      <section>
+        <hgroup>
+          <h2>Traduzione Audio Istantanea</h2>
+          <h3>Carica o Registra il Tuo Audio</h3>
+        </hgroup>
+        <p>Carica il tuo file audio o registrane uno direttamente sulla nostra piattaforma. Ottieni una traduzione nella lingua desiderata senza sforzo.</p>
+        <form class="grid">
+          <label for="fileUpload">Carica File Audio:</label>
+          <span>Formati supportati: .mp3, .wav</span>
+          <span>Dimensione massima file: 1MB</span>
+          <input type="file" id="fileUpload" name="fileUpload" accept=".mp3, .wav" />
+          <div>O Registra Audio:</div>
+          <div>
+            <button id="recordButton">Registra</button>
+            <button id="stopButton" disabled>Stop</button>
+          </div>
+          <div>
+            <label for="langSourceSel">Lingua Audio:</label>
+            <select id="langSourceSel" name="langSourceSel">
+  
+            </select>
+            <label for="langDestSel">Traduci in:</label>
+            <select id="langDestSel" name="langDestSel"  onchange="showSubmitButton()">
+  
+            </select>
+          </div>
+          <br>
+          <div id="uploadSection" style="display: none;">
+
+            <button id="uploadBtn" type="submit" onclick="event.preventDefault()">Invia per Traduzione</button>
+          </div>
+        </form>
+        <div id="loading-spinner-container" class="hidden">
+          <div class="spinner"></div>
+        </div>
+  
+        <div id="translatedAudio" style="display: none">
+          <h3>Scarica o Ascolta l'Audio Tradotto</h3>
+          <p>Una volta tradotto l'audio, scarica o ascoltalo nella nuova lingua direttamente da qui.</p>
+          <!-- Placeholder for Download/Listen Links -->
+          <div>
+            <a id="downloadLink" href="" download>Scarica Audio Tradotto</a>
+            <audio controls id="resultAudioPlayer">
+              <source src="#" type="audio/mpeg">
+              Il tuo browser non supporta l'elemento audio.
+            </audio>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="container">
+    <small>
+      <p>© 2024 Daniele Mariotto - <a href="https://github.com/danielemariotto" target="_blank">Github profile</a></p>
+    </small>
+  </footer>
+  <script src="app.js"></script>
+
+</body>
+
+</html>
